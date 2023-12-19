@@ -9,22 +9,31 @@
   </head>
   <body class="bg-gradient-to-r from-cyan-500 to-blue-500">
     <div
-      class="flex flex-col justify-center items-center h-screen space-y-8 text-white">
-      <h1 class="text-5xl">Happy Birthday!</h1>
-      <p class="text-lg font-medium">
+      class="flex flex-col justify-center items-center h-screen space-y-8">
+      <h1 class="text-5xl text-white">Happy Birthday!</h1>
+      <p class="text-lg font-medium text-white">
         Lieve Britt, Gefeliciteerd met je 28e verjaardag!<br />
         Druk op de knop, dan is je verjaardag top!
       </p>
-      <button class="rounded-md bg-orange-500 text-white font-bold text-lg p-3 confetti">
+      <button class="rounded-md bg-orange-500 text-white font-bold text-lg p-3 confetti" onclick="play(); showDiv();" >
         Klikt op mij
       </button>
+      <audio id="audio" src="/audio/snight.mp3"></audio>
+      <a href="/build/downloads.html" class="font-thin text-xs text-blue-200">of klik hier voor je cadeau</a>  
     </div>
     <script>
         const jsConfetti = new JSConfetti();
         function yippie(){
-            jsConfetti.addConfetti();
+          jsConfetti.addConfetti();
         }
         document.querySelector(".confetti").addEventListener("click", yippie);
+        function play() {
+          var audio = document.getElementById("audio");
+          audio.play();
+        }
+        function showDiv() {
+          document.getElementsByClassName('photos').classList.toggle("zichtbaar");
+        }
     </script>
   </body>
 </html>
